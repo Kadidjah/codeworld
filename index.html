@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CodeWorld: um minijogo educativo sobre Ciência da Computação.">
+  <title>CodeWorld — Biblioteca dos Dados</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <h1>CodeWorld <span>— Biblioteca dos Dados</span></h1>
+      <div class="status" aria-label="Progresso do jogo">
+        <p>Pontos: <strong id="score">0</strong></p>
+        <p>Fragmentos: <strong id="fragments">0/3</strong></p>
+      </div>
+    </header>
+
+    <section id="game" class="game" aria-label="Área do jogo">
+      <aside id="instructions" aria-label="Instruções do jogo">
+        <h2>Como jogar</h2>
+        <p><strong>Mover:</strong> WASD ou setas</p>
+        <p><strong>Falar com Dália:</strong> aproxime-se e pressione E</p>
+        <p><strong>Desafio:</strong> clique nas etapas na ordem correta</p>
+        <p><strong>Objetivo:</strong> recupere os 3 fragmentos</p>
+      </aside>
+
+      <div class="library-sign" aria-hidden="true">BIBLIOTECA DOS DADOS</div>
+      <div class="bookshelf bookshelf-one" aria-hidden="true">▥ ▥ ▥ ▥ ▥</div>
+      <div class="bookshelf bookshelf-two" aria-hidden="true">▥ ▥ ▥ ▥ ▥</div>
+
+      <div id="player" class="character player" role="img" aria-label="Seu personagem">🧑‍💻</div>
+
+      <div id="npc" class="character npc" role="img" aria-label="Dália, a bibliotecária">
+        🤖
+        <span class="character-name">Dália</span>
+      </div>
+
+      <div id="hint" class="hint" aria-live="polite">
+        Explore a biblioteca e encontre Dália.
+      </div>
+
+      <section id="dialogue" class="panel dialogue hidden"
+               role="dialog" aria-modal="true" aria-labelledby="dialogueTitle">
+        <h2 id="dialogueTitle">Dália</h2>
+        <p id="dialogueText"></p>
+        <button id="dialogueAction" type="button">Continuar</button>
+      </section>
+
+      <section id="challenge" class="panel challenge hidden"
+               aria-labelledby="challengeTitle">
+        <h2 id="challengeTitle">Desafio</h2>
+        <p id="challengePrompt"></p>
+        <p class="challenge-help">Clique nas etapas na ordem correta.</p>
+        <div id="challengeOptions" class="challenge-options"></div>
+        <p id="challengeStatus" class="challenge-status" aria-live="polite"></p>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <p>Use os desafios para ajudar Dália a recuperar o Código Central!</p>
+    </footer>
+  </main>
+</body>
+</html>
